@@ -147,7 +147,7 @@
     function calculateCaloriesBurned(distance, weight, activityType,speed) {
       // カロリー計算のための定数（一般的な値、実際には調整が必要かもしれません）
       const caloriesPerKilometer = 1.05; // カロリー消費率 (kcal/kg/km)
-      let caloriesBurned = caloriesPerKilometer * ((distance/speed)*3600) * weight; //1.05x時間(h)x体重(kg)
+      let caloriesBurned = caloriesPerKilometer * (distance/(speed*3600)) * weight; //1.05x時間(h)x体重(kg)
 
       // 活動の種類に応じた補正（例: ウォーキングの場合）
       if (activityType === "walking") {
