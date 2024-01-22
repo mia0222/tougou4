@@ -122,8 +122,8 @@
         // カロリー計算
         var weight = parseFloat(document.getElementById("weightInput").value); // ユーザーの体重
         var activityType = document.getElementById("activityTypeInput").value; // ユーザーが選択した活動の種類
-        var caloriesBurned = calculateCaloriesBurned(totalDistance,speed, weight, activityType);
-        //totalCalories += caloriesBurned; 
+        var caloriesBurned = calculateCaloriesBurned(distance,speed, weight, activityType);
+        totalCalories += caloriesBurned; 
         caloriesElement.innerHTML = "消費カロリー: " + caloriesBurned.toFixed(2) + " kcal";
       }
 
