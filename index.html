@@ -102,7 +102,7 @@
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       var accuracy = position.coords.accuracy;
-      var speed = position.coords.speed;
+      var speed = position.coords.speed * 3600;
       var timestamp = new Date(position.timestamp).toLocaleString();
 
       locationDataElement.innerHTML = "緯度: " + latitude.toFixed(7) + "<br>経度: " + longitude.toFixed(7) + "<br>精度: " + accuracy +
