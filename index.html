@@ -103,7 +103,6 @@
       var longitude = position.coords.longitude;
       var accuracy = position.coords.accuracy;
       var speed = position.coords.speed;
-      speed = speed*3600;
       var timestamp = new Date(position.timestamp).toLocaleString();
 
       locationDataElement.innerHTML = "緯度: " + latitude.toFixed(7) + "<br>経度: " + longitude.toFixed(7) + "<br>精度: " + accuracy.toFixed(7) +
@@ -118,12 +117,12 @@
 
         var distance = calculateDistance(lastLat, lastLng, currentLat, currentLng);
         totalDistance += distance; // 移動距離を累積
-        distanceElement.innerHTML = "移動距離: " + totalDistance.toFixed(2) + " メートル ";
+        distanceElement.innerHTML = "移動距離: " + totalDistance.toFixed(2) + " メートル "+speed;
 
         // カロリー計算
         var weight = parseFloat(document.getElementById("weightInput").value); // ユーザーの体重
         var activityType = document.getElementById("activityTypeInput").value; // ユーザーが選択した活動の種類
-        var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType,speed);
+        var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType);
         totalCalories += caloriesBurned;
         caloriesElement.innerHTML = "消費カロリー: " + parseFloat(totalCalories).toFixed(2) + " kcal";
       }
@@ -147,10 +146,10 @@
       );
     }
 
-    function calculateCaloriesBurned(distance, weight, activityType,sp) {
+    function calculateCaloriesBurned(distance, weight, activityType) {
       // カロリー計算のための定数（一般的な値、実際には調整が必要かもしれません）
       const caloriesPerKilometer = 1.05; // 補正
-      let caloriesBurned = caloriesPerKilometer * weight * (distance / sp);
+      let caloriesBurned = caloriesPerKilometer * weight * (distance);
      // 活動の種類に応じた補正mets（例: ウォーキングの場合）
       if (activityType === "walking") {
         caloriesBurned *= 3.0; // ウォーキングの場合の補正値
