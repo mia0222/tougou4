@@ -146,8 +146,9 @@
 
     function calculateCaloriesBurned(distance, weight, activityType) {
       // カロリー計算のための定数（一般的な値、実際には調整が必要かもしれません）
+      var sp = position.coords.speed;
       const caloriesPerKilometer = 1.05; // 補正
-      let caloriesBurned = caloriesPerKilometer * weight * (distance / (speed * 3600));
+      let caloriesBurned = caloriesPerKilometer * weight * (distance / (sp* 3600));
 
       // 活動の種類に応じた補正mets（例: ウォーキングの場合）
       if (activityType === "walking") {
