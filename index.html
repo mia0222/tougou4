@@ -113,7 +113,6 @@
         var lastLng = lastPosition.coords.longitude;
         var currentLat = position.coords.latitude;
         var currentLng = position.coords.longitude;
-        var sp = position.coords.speed;
 
         var distance = calculateDistance(lastLat, lastLng, currentLat, currentLng);
         totalDistance += distance; // 移動距離を累積
@@ -122,7 +121,7 @@
         // カロリー計算
         var weight = parseFloat(document.getElementById("weightInput").value); // ユーザーの体重
         var activityType = document.getElementById("activityTypeInput").value; // ユーザーが選択した活動の種類
-        var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType,sp);
+        var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType,speed);
         caloriesElement.innerHTML = "消費カロリー: " + caloriesBurned + " kcal";
       }
 
