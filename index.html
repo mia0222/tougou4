@@ -122,7 +122,7 @@
         var weight = parseFloat(document.getElementById("weightInput").value); // ユーザーの体重
         var activityType = document.getElementById("activityTypeInput").value; // ユーザーが選択した活動の種類
         var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType);
-        caloriesElement.innerHTML = "消費カロリー: " + caloriesBurned.toFixed(2) + " kcal";
+        caloriesElement.innerHTML = "消費カロリー: " + parseFloat(caloriesBurned).toFixed(2) + " kcal";
       }
 
       // 現在の場所が目標の場所に近づいたかどうかを確認
@@ -147,7 +147,7 @@
     function calculateCaloriesBurned(distance, weight, activityType) {
       // カロリー計算のための定数（一般的な値、実際には調整が必要かもしれません）
       const caloriesPerKilometer = 1.05; // 補正
-      let caloriesBurned = caloriesPerKilometer * (weight / 1000) * (distance * (speed * 3600));
+      let caloriesBurned = caloriesPerKilometer * (weight / 1000) * (distance / (speed * 3600));
 
       // 活動の種類に応じた補正（例: ウォーキングの場合）
       if (activityType === "walking") {
