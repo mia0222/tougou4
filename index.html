@@ -146,10 +146,9 @@
       );
     }
 
-    function calculateCaloriesBurned(distance,speed, weight, activityType,speed) {
+    function calculateCaloriesBurned(distance,speed, weight, activityType) {
       // カロリー計算のための定数（一般的な値、実際には調整が必要かもしれません）
-      const caloriesPerKilometer = 1.05; // カロリー消費率 (kcal/kg/km)
-      let caloriesBurned = caloriesPerKilometer * (distance/parseFloat(speed*3600).toFixed(2)) * weight; //1.05x時間(h)x体重(kg)
+      let caloriesBurned = 1.05 * (distance/parseFloat(speed*3600).toFixed(2)) * weight; //1.05x時間(h)x体重(kg)
 
       // 活動の種類に応じた補正（例: ウォーキングの場合）
       if (activityType === "walking") {
