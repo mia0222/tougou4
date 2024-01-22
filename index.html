@@ -116,7 +116,7 @@
 
         var distance = calculateDistance(lastLat, lastLng, currentLat, currentLng);
         totalDistance += distance; // 移動距離を累積
-        distanceElement.innerHTML = "移動距離: " + totalDistance.toFixed(2) + " メートル " +(parseFloat(speed)*3600)/1000+"km/h";
+        distanceElement.innerHTML = "移動距離: " + totalDistance.toFixed(2) + " メートル ";
 
         // カロリー計算
         var weight = parseFloat(document.getElementById("weightInput").value); // ユーザーの体重
@@ -149,7 +149,7 @@
       const caloriesPerKilometer = 1.05; // 補正
       let caloriesBurned = caloriesPerKilometer * (weight / 1000) * (distance / (speed * 3600));
 
-      // 活動の種類に応じた補正（例: ウォーキングの場合）
+      // 活動の種類に応じた補正mets（例: ウォーキングの場合）
       if (activityType === "walking") {
         caloriesBurned *= 3.0; // ウォーキングの場合の補正値
       } else if (activityType === "running") {
