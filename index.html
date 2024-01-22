@@ -124,7 +124,7 @@
         var activityType = document.getElementById("activityTypeInput").value; // ユーザーが選択した活動の種類
         var caloriesBurned = calculateCaloriesBurned(totalDistance, weight, activityType,speed);
         totalCalories += caloriesBurned;
-        caloriesElement.innerHTML = "消費カロリー: " + totalCalories.toFixed(2) + " kcal";
+        caloriesElement.innerHTML = "消費カロリー: " + parseFloat(totalCalories).toFixed(2) + " kcal";
       }
 
       // 現在の場所が目標の場所に近づいたかどうかを確認
